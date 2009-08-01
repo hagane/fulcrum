@@ -5,6 +5,8 @@ namespace FGF
 	class IEventProcessor
 	{
 	public:
-		virtual bool ProcessEvent(SDL_Event e) = 0;
+		virtual void KeyState(SDL_KeyboardEvent ev) = 0;
+		virtual void MouseMove(SDL_MouseMotionEvent ev) = 0;
+		virtual void MouseButton(SDL_MouseButtonEvent ev) = 0;
 	};
 }

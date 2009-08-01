@@ -115,7 +115,26 @@ namespace FGF
 					logger->Log("SDL_QUIT received. Shutting down.");
 					break;
 				}
-				else if(ep != NULL) ep->ProcessEvent(ev);
+				else
+				{
+					if (ep != 0)
+					{
+						switch(ev.type)
+						{
+						case SDL_KEYDOWN:
+						case SDL_KEYUP:
+							ep->KeyState(ev.key);
+							break;
+						case SDL_MOUSEMOTION:
+							ep->MouseMove(ev.motion);
+							break;
+						case SDL_MOUSEBUTTONDOWN:
+						case SDL_MOUSEBUTTONUP:
+							ep->MouseButton(ev.button);
+							break;
+						}
+					}
+				}
 			}
 
 			glClear(GL_COLOR_BUFFER_BIT);
