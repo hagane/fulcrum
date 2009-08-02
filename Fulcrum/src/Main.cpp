@@ -39,7 +39,7 @@ namespace FGF
 
 		ep = 0;
 	}
-
+//В этом конструкторе надо что-то сделать с дублированием кода -_-
 	Main::Main(int w, int h, int bpp, bool fullscreen)
 	{
 		Logger* logger = Logger::getInstance();
