@@ -9,7 +9,7 @@ namespace FGF
 	{
 	public:
 		SceneManager(void);
-		~SceneManager(void);
+		virtual ~SceneManager(void);
 		void Update(float dt);
 		void Render();
 		void addNode(SceneNode* node);

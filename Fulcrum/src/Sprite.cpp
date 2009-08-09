@@ -25,13 +25,16 @@ namespace FGF
 
 	void Sprite::Update( float dt )
 	{
-		TTL -= dt;
-		if(TTL <= 0.0f)
+		if(FPS > 0)
 		{
-			frame++;
-			if(frame > end) frame = start;
-			setFrame(frame);
-			TTL = 1.0/FPS;
+			TTL -= dt;
+			if(TTL <= 0.0f)
+			{
+				frame++;
+				if(frame > end) frame = start;
+				setFrame(frame);
+				TTL = 1.0/FPS;
+			}
 		}
 	}
 
