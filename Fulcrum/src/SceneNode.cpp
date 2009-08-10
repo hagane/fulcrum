@@ -92,8 +92,10 @@ namespace FGF
 
 	void SceneNode::Render(int curPass)
 	{
+		glPushMatrix();
 		prepare(curPass);
 		renderChildren(curPass);
+		glPopMatrix();
 	}
 
 	void SceneNode::prepare(int curPass)

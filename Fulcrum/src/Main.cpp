@@ -108,6 +108,7 @@ namespace FGF
 		while(1)
 		{
 			timer.start();
+
 			if(SDL_PollEvent(&ev) != 0)
 			{
 				if(ev.type == SDL_QUIT)
@@ -139,7 +140,6 @@ namespace FGF
 
 			glClear(GL_COLOR_BUFFER_BIT);
 			smgr->Update(dt);
-			
 			smgr->Render();
 
 			SDL_GL_SwapBuffers();
