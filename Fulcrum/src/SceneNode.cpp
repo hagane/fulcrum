@@ -14,6 +14,10 @@ namespace FGF
 
 	SceneNode::~SceneNode(void)
 	{
+		for(std::list<SceneNode*>::iterator i = child.begin(); i != child.end(); i++)
+		{
+			(*i)->release();
+		}
 		child.clear();
 	}
 
