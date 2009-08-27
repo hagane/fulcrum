@@ -3,10 +3,11 @@
 #include "Logger.h"
 #include "OpenGL.h"
 #include <FreeImage.h>
+#include "export.h"
 
 namespace FGF
 {
-	class Texture
+	class EXPORT Texture
 	{
 	public:
 		Texture(const char* fname);

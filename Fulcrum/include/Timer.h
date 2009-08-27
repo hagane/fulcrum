@@ -1,9 +1,10 @@
 #pragma once
 #include <windows.h>
+#include "export.h"
 
 namespace FGF
 {
-	class Timer
+	class EXPORT Timer
 	{
 	public:
 		Timer(void);

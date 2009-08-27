@@ -32,10 +32,11 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 #include "SceneManager.h"
 #include "Timer.h"
 #include "IEventProcessor.h"
+#include "export.h"
 
 namespace FGF
 {
-	class Main
+	class EXPORT Main
 	{
 	public:
 		Main(void);

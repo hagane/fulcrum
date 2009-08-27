@@ -2,10 +2,11 @@
 #include <string>
 #include <fstream>
 #include <ctime>
+#include "export.h"
 
 namespace FGF
 	{
-	class Logger
+	class EXPORT Logger
 	{
 	public:
 		~Logger(void);

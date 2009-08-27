@@ -3,10 +3,11 @@
 #include <string>
 #include <fstream>
 #include "Logger.h"
+#include "export.h"
 
 namespace FGF
 {
-	class StringTable
+	class EXPORT StringTable
 	{
 	public:
 		StringTable(char* file);

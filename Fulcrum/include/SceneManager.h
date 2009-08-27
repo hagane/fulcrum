@@ -2,10 +2,11 @@
 #include <list>
 #include "OpenGL.h"
 #include "SceneNode.h"
+#include "export.h"
 
 namespace FGF
 {
-	class SceneManager
+	class EXPORT SceneManager
 	{
 	public:
 		SceneManager(void);

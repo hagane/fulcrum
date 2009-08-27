@@ -1,13 +1,12 @@
 #pragma once
 #include "OpenGL.h"
-
 #include <list>
-
 #include "RefCount.h"
+#include "export.h"
 
 namespace FGF
 {
-	class SceneNode: public RefCount
+	class EXPORT SceneNode: public RefCount
 	{
 	public:
 		SceneNode(SceneNode* parent, int pass = 0);

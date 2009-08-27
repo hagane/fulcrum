@@ -1,9 +1,10 @@
 #pragma once
+#include "export.h"
 #include "OpenGL.h"
 
 namespace FGF
 {
-	class Color3f
+	class EXPORT Color3f
 	{
 	public:
 		Color3f(void);

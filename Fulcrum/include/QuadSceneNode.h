@@ -3,10 +3,11 @@
 #include "OpenGL.h"
 #include "Vertex3f.h"
 #include "Color3f.h"
+#include "export.h"
 
 namespace FGF
 {
-	class QuadSceneNode :
+	class EXPORT QuadSceneNode :
 		public SceneNode
 	{
 	public:

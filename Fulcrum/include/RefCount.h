@@ -1,8 +1,9 @@
 #pragma once
+#include "export.h"
 
 namespace FGF
 {
-	class RefCount
+	class EXPORT RefCount
 	{
 	public:
 		RefCount(void);

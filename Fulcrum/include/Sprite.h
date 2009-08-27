@@ -2,9 +2,11 @@
 #include "TexturedQuadSceneNode.h"
 #include "Texture.h"
 #include <vector>
+#include "export.h"
+
 namespace FGF
 {
-	class Sprite :
+	class EXPORT Sprite :
 		public TexturedQuadSceneNode
 	{
 	public:

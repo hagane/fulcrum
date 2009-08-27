@@ -1,9 +1,10 @@
 #pragma once
 #include "OpenGL.h"
+#include "export.h"
 
 namespace FGF
 {
-	class Vertex3f
+	class EXPORT Vertex3f
 	{
 	public:
 		Vertex3f(void);
