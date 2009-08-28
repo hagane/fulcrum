@@ -8,6 +8,17 @@
 
 namespace FGF
 {
+	/**
+	 * Resource Manager delivers automatic loading and freeing resources, described in a resource script.
+	 * Format of a resource script:
+	 * <type> <handle> <path>
+	 * where:
+	 * -<type>:
+	 * -# TEXTURE -- resource is a texture
+	 * -# STRTABLE -- resource a string table
+	 * -<handle> can be any unsigned decimal integer
+	 * -<path> is a relative or absolute path to resource
+	 */
 	class EXPORT ResourceManager
 	{
 	public:

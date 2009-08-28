@@ -36,15 +36,37 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 namespace FGF
 {
+	/**
+	 * That is a main class of the engine.
+	 * It runs main loop and captures events.
+	 */
 	class EXPORT Main
 	{
 	public:
-		Main(void);
+		/**
+		 * Constructor
+		 * @param w,h desired resolution
+		 * @param bpp desired color depth
+		 * @param fullscreen set to true, if you want a fullscreen application, false otherwise
+		 * */
 		Main(int w, int h, int bpp, bool fullscreen);
 		~Main(void);
+
+		/**
+		 * Starts main loop. Scene manager should be set before calling this.
+		 */
 		void start();
 
+		/**
+		 * Sets scene manager to use.
+		 * @param new_smgr pointer to the scene manager that will be used
+		 */
 		void setSceneManager(SceneManager* new_smgr);
+
+		/**
+		 * Sets event processor to use.
+		 * @param new_ep pointer to event processor
+		 */
 		void setEventProcessor(IEventProcessor* new_ep);
 
 	private:

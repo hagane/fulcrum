@@ -3,43 +3,6 @@
 
 namespace FGF
 {
-	Main::Main(void)
-	{
-		Logger* logger = Logger::getInstance();
-		logger->Log("SDL Init:");
-		bool success = true;
-		if(SDL_Init(SDL_INIT_VIDEO) == -1)
-		{
-			logger->Log("Video: failure");
-			success = false;
-		}
-		else
-		{
-			logger->Log("Video: success");
-		}
-
-		if(SDL_InitSubSystem(SDL_INIT_AUDIO) == -1)
-		{
-			logger->Log("Audio: failure");
-			success = false;
-		}
-		else
-		{
-			logger->Log("Audio: success");
-		}
-		if(!success)
-		{
-			logger->Log("SDL init failure. Shutting down.");
-			SDL_Quit();
-			exit(1);
-		}
-
-		logger->Log("Setting up video mode: 640x480 32bpp Windowed");
-		SetVideoMode(640,480,32,false);
-
-		ep = 0;
-	}
-//В этом конструкторе надо что-то сделать с дублированием кода -_-
 	Main::Main(int w, int h, int bpp, bool fullscreen)
 	{
 		Logger* logger = Logger::getInstance();
@@ -156,7 +119,6 @@ namespace FGF
 		SDL_GL_SetAttribute( SDL_GL_BLUE_SIZE, 8 );
 		SDL_GL_SetAttribute( SDL_GL_ALPHA_SIZE, 8 );
 		SDL_GL_SetAttribute( SDL_GL_DEPTH_SIZE, 24 );
-		//	SDL_GL_SetAttribute( SDL_GL_STENCIL_SIZE, 8);
 		SDL_GL_SetAttribute( SDL_GL_DOUBLEBUFFER, 1 );
 
 		this->w = w;
