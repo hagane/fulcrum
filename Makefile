@@ -30,5 +30,7 @@ clean:
 	rmdir obj
 	del lib /Q
 	rmdir lib
+	del docs /Q
+	rmdir docs
 
 all: prepare compile link
