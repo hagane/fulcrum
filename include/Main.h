@@ -36,7 +36,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 namespace FGF
 {
-	/**
+	/** \brief Core loop, event capture.
+	 *
 	 * That is a main class of the engine.
 	 * It runs main loop and captures events.
 	 */
