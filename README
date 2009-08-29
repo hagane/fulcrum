@@ -1,0 +1,16 @@
+To build Fulcrum for Windows, you'll need:
+
+	* SDL 1.2
+	* FreeImage 3
+	* MS Visual Studio confugured to build using command-line tools
+	* Doxygen 1.5(if you want to generate docs)
+
+	To build the library itself, modify paths in Makefile to where your libraries are located and then execute "nmake all" in the command prompt.
+	This will produce a directory named "lib", where Fulcrum.dll and Fulcrum.lib will be placed.
+
+	To generate documentation simply execute "doxygen" in the command prompt.
+	This will produce a directory named "docs", where documentation will be located.
+
+	Building the library with MinGW is probably possible too.
+
+	GNU/Linux, *BSD, etc is not supported yet.
