@@ -1,5 +1,5 @@
 #pragma once
-#include <windows.h>
+#include <time.h>
 #include "export.h"
 
 namespace FGF
@@ -34,7 +34,7 @@ namespace FGF
 		 */
 		float getFPS();
 	private:
-		LARGE_INTEGER freq,t_start,t_stop;
+		long freq,t_start,t_stop;
 		float dt;
 	};
 }
