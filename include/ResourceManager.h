@@ -4,6 +4,7 @@
 #include <fstream>
 #include "Texture.h"
 #include "StringTable.h"
+#include "Sound.h"
 #include "export.h"
 
 namespace FGF
@@ -19,7 +20,8 @@ namespace FGF
 	 * where:
 	 * - <type>:
 	 *  - TEXTURE -- resource is a texture
-	 *  - STRTABLE -- resource a string table
+	 *  - STRTABLE -- resource is a string table
+	 *  - SOUND -- resource is a sound
 	 * - <handle> can be any unsigned decimal integer. It should be unique among all resources of the same type.
 	 * - <path> is a relative or absolute path to resource
 	 */
@@ -43,8 +45,14 @@ namespace FGF
 		 */
 		StringTable* getStrTable(int id);
 
+		/**
+		 * Returns a sound with given ID.
+		 */
+		Sound* getSound(int id);
+
 	private:
 		std::map<int, Texture*> textures;
 		std::map<int, StringTable*> str_tables;
+		std::map<int, Sound*> sounds;
 	};
 }
