@@ -38,13 +38,13 @@ namespace FGF
 		char tmp[5];
 		
 		std::string log = "Setting up video mode: ";
-		sprintf(tmp,5,"%i",w);
+		sprintf(tmp,"%i",w);
 		log += tmp;
 		log += "x";
-		sprintf(tmp,5,"%i",h);
+		sprintf(tmp,"%i",h);
 		log += tmp;
 		log += " ";
-		sprintf(tmp,5,"%i",bpp);
+		sprintf(tmp,"%i",bpp);
 		log += tmp;
 		log += "bpp ";
 		log += fullscreen?"Fullscreen":"Windowed";
