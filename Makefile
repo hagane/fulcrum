@@ -11,7 +11,7 @@ O = "./obj"
 
 CLFLAGS = /DFGF_DLL /I$(SDLDIR)\include /I$(CRTDIR)/Include /I$(WINSDK)/include /I$(FIDIR) /c /EHsc /MD /Ox
 LINKFLAGS = /LIBPATH:$(CRTDIR)/Lib /LIBPATH:$(WINSDK)/Lib /LIBPATH:$(SDLDIR)/lib /LIBPATH:$(FIDIR) /DLL
-LIB = OpenGL32.lib Kernel32.lib SDL.lib FreeImage.lib
+LIB = OpenGL32.lib Kernel32.lib SDL.lib SDL_mixer.lib FreeImage.lib
 OBJ = $O/*.obj
 SRC = $S/*.cpp
 
