@@ -27,6 +27,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 #include <string>
 #include <stdio.h>
 #include <sdl.h>
+#include <SDL_mixer.h>
 #include "OpenGL.h"
 #include "Logger.h"
 #include "SceneManager.h"

@@ -26,6 +26,7 @@ namespace FGF
 		else
 		{
 			logger->Log("Audio: success");
+			Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,4096);
 		}
 		if(!success)
 		{
@@ -59,6 +60,7 @@ namespace FGF
 	{
 		Logger::getInstance()->Log("SDL shutdown.");
 		Logger::shutdown();
+		Mix_CloseAudio();
 		SDL_Quit();
 	}
 
