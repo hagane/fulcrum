@@ -26,7 +26,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 #pragma once
 #include <string>
 #include <stdio.h>
-#include <sdl.h>
+#include <SDL.h>
 #include <SDL_mixer.h>
 #include "OpenGL.h"
 #include "Logger.h"

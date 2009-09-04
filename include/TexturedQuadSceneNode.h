@@ -3,7 +3,6 @@
 #include "OpenGL.h"
 #include "Vertex3f.h"
 #include "Texture.h"
-#include <SDL.h>
 #include "export.h"
 
 namespace FGF

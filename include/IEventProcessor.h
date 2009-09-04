@@ -1,5 +1,5 @@
 #pragma once
-#include <sdl.h>
+#include <SDL.h>
 
 namespace FGF
 {
