@@ -21,7 +21,10 @@ namespace FGF
 			{
 				str_tables[token_id] = new StringTable(token_path);
 			}
-			
+			if (strcmp(token, "SOUND") == 0)
+			{
+				sounds[token_id] = new Sound(token_path);
+			}
 		}
 
 		f.close();
@@ -48,6 +51,16 @@ namespace FGF
 		if(str_tables.find(id) != str_tables.end())
 		{
 			StringTable* tmp = str_tables[id];
+			return tmp;
+		}
+		else return NULL;
+	}
+
+	Sound* ResourceManager::getSound(int id)
+	{
+		if(sounds.find(id) != sounds.end())
+		{
+			Sound* tmp = sounds[id];
 			return tmp;
 		}
 		else return NULL;
