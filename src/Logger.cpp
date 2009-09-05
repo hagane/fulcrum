@@ -27,7 +27,7 @@ namespace FGF
 		time_t currTime;
 		time(&currTime);
 		struct tm ltime;
-		localtime_s(&ltime, &currTime);
+		ltime = localtime(&currTime);
 		logfile << ltime.tm_mday << "/"
 			<< ltime.tm_mon+1 << "/"
 			<< ltime.tm_year+1900 << " "
