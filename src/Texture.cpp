@@ -1,4 +1,6 @@
-#include "..\include\Texture.h"
+#include "Texture.h"
+#include <memory.h>
+
 namespace FGF
 {
 	Texture::Texture(const char* fname)

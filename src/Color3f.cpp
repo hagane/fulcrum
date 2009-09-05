@@ -1,4 +1,4 @@
-#include "..\include\Color3f.h"
+#include "Color3f.h"
 
 namespace FGF
 {

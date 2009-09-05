@@ -1,4 +1,4 @@
-#include "../include/TexturedQuadSceneNode.h"
+#include "TexturedQuadSceneNode.h"
 namespace FGF
 {
 	TexturedQuadSceneNode::TexturedQuadSceneNode(SceneNode* parent, float x, float y, float w, float h, Texture* aTex):

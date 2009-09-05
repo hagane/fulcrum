@@ -1,4 +1,4 @@
-#include "..\include\Vertex3f.h"
+#include "Vertex3f.h"
 namespace FGF
 {
 	Vertex3f::Vertex3f()

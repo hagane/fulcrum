@@ -1,4 +1,4 @@
-#include "..\include\Timer.h"
+#include "Timer.h"
 namespace FGF
 {
 	Timer::Timer(void)
@@ -25,7 +25,7 @@ namespace FGF
 		clock_gettime(CLOCK_REALTIME, &ts);
 		t_stop = ts.tv_sec * 1000000000 + ts.tv_nsec;
 		dt = (t_stop - t_start);//разница между t_start и t_stop
-		dt /= freq.QuadPart;//в секундах
+		dt /= freq;//в секундах
 	}
 
 	float Timer::getDelta()

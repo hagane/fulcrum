@@ -1,4 +1,4 @@
-#include "..\include\SceneManager.h"
+#include "SceneManager.h"
 
 namespace FGF
 {

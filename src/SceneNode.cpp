@@ -1,4 +1,4 @@
-#include "..\include\SceneNode.h"
+#include "SceneNode.h"
 
 namespace FGF
 {

@@ -1,4 +1,4 @@
-#include "..\include\QuadSceneNode.h"
+#include "QuadSceneNode.h"
 
 namespace FGF
 {

@@ -1,4 +1,4 @@
-#include "..\include\StringTable.h"
+#include "StringTable.h"
 
 namespace FGF
 {

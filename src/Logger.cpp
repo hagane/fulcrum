@@ -1,5 +1,5 @@
-#include "..\include\Logger.h"
-
+#include "Logger.h"
+//#include <ctime>
 namespace FGF
 {
 	Logger::Logger(std::string file)
@@ -26,14 +26,14 @@ namespace FGF
 	{
 		time_t currTime;
 		time(&currTime);
-		struct tm ltime;
-		localtime_s(&ltime, &currTime);
-		logfile << ltime.tm_mday << "/"
-			<< ltime.tm_mon+1 << "/"
-			<< ltime.tm_year+1900 << " "
-			<< ltime.tm_hour << ":"
-			<< ltime.tm_min << ":"
-			<< ltime.tm_sec << "> ";
+		struct tm *ltime;
+		ltime = localtime(&currTime);
+		logfile << ltime->tm_mday << "/"
+			<< ltime->tm_mon+1 << "/"
+			<< ltime->tm_year+1900 << " "
+			<< ltime->tm_hour << ":"
+			<< ltime->tm_min << ":"
+			<< ltime->tm_sec << "> ";
 	}
 
 	Logger* Logger::getInstance(bool shutdown)
