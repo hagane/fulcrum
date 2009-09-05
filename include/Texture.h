@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory.h>
 #include "Logger.h"
 #include "OpenGL.h"
 #include <FreeImage.h>
