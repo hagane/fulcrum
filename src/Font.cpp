@@ -23,22 +23,22 @@ namespace FGF
 		f.close();
 	}
 
-	void Font::renderChar(wchar_t ch)
+	void Font::renderChar(wchar_t ch, int x_offset, int y_offset)
 	{
 		tex->Activate();
 		if(chars.find(ch) != chars.end())
 		{
 			glTexCoord2i(origin_x[ch], origin_y[ch]);
-			glVertex3i(0,0,0);
+			glVertex3i(x_offset, y_offset, 0);
 
 			glTexCoord2i(origin_x[ch], origin_y[ch] + height[ch]);
-			glVertex3i(0,height[ch],0);
+			glVertex3i(x_offset, y_offset + height[ch], 0);
 
 			glTexCoord2i(origin_x[ch] + width[ch], origin_y[ch] + height[ch]);
-			glVertex3i(width[ch],height[ch],0);
+			glVertex3i(x_offset + width[ch], y_offset + height[ch], 0);
 
 			glTexCoord2i(origin_x[ch] + width[ch], origin_y[ch]);
-			glVertex3i(width[ch],0,0);
+			glVertex3i(x_offset + width[ch], y_offset, 0);
 		}
 	}
 

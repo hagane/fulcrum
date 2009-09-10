@@ -27,7 +27,7 @@ namespace FGF
 		/**
 		 * Renders a char.
 		 */
-		void renderChar(wchar_t ch);
+		void renderChar(wchar_t ch, int x_offset, int y_offset);
 		
 		/**
 		 * Returns a width of given character,
