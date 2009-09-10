@@ -23,6 +23,16 @@ namespace FGF
 		f.close();
 	}
 
+	Font::~Font()
+	{
+		delete tex;
+		origin_x.clear();
+		origin_y.clear();
+		width.clear();
+		height.clear();
+		chars.clear();
+	}
+
 	void Font::renderChar(wchar_t ch, int x_offset, int y_offset)
 	{
 		tex->Activate();
