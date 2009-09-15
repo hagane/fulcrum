@@ -61,8 +61,8 @@ namespace FGF
 				for(int i = 0; i < 4; i++)
 				{
 					color[i].activate();
-					vertex[i].render();
 					glTexCoord2f(texCoord1[i],texCoord2[i]);
+					vertex[i].render();
 				}
 			glEnd();
 		}
@@ -101,9 +101,9 @@ namespace FGF
 			next--;
 		}
 		
-		texCoord1[0] = tc_origin_x + tcW;
+		texCoord1[0] = tc_origin_x;
 		texCoord1[1] = tc_origin_x;
-		texCoord1[2] = tc_origin_x;
+		texCoord1[2] = tc_origin_x + tcW;
 		texCoord1[3] = tc_origin_x + tcW;
 
 		texCoord2[0] = tc_origin_y - tcH;
