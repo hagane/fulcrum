@@ -2,17 +2,25 @@
 namespace FGF
 {
 	Sprite::Sprite(SceneNode* parent, float x, float y, float w, float h, float fps, Texture* aTex)
-		:TexturedQuadSceneNode(parent,x,y,w,h,aTex)
+		:QuadSceneNode(parent,x,y,w,h)
 	{
+		tex = aTex;
+
+		this->setOrigin(0,0);
+
+		texCoord1 = new float[4];
+		texCoord2 = new float[4];
+
 		framesX = (aTex->getXRes()/w);
 		framesY = (aTex->getYRes()/h);
 		frames = framesX*framesY;
 		tcW = w/aTex->getXRes();
 		tcH = h/aTex->getYRes();
+
+		setFrame(0);
 		frame = 0;
 		TTL = 1.0/fps;
 		FPS = fps;
-		setFrame(0);
 		frame = 0;
 
 		start = 0;
@@ -21,6 +29,8 @@ namespace FGF
 
 	Sprite::~Sprite(void)
 	{
+		delete[] texCoord1;
+		delete[] texCoord2;
 	}
 
 	void Sprite::Update( float dt )
@@ -36,6 +46,28 @@ namespace FGF
 				TTL = 1.0/FPS;
 			}
 		}
+	}
+
+	void Sprite::Render(int curPass)
+	{
+		glPushMatrix();
+		prepare(curPass);
+
+		if(render && (tex != NULL))
+		{
+			glEnable(GL_TEXTURE_2D);
+			tex->Activate();
+			glBegin(GL_TRIANGLE_STRIP);
+				for(int i = 0; i < 4; i++)
+				{
+					color[i].activate();
+					glTexCoord2f(texCoord1[i],texCoord2[i]);
+					vertex[i].render();
+				}
+			glEnd();
+		}
+		renderChildren(curPass);
+		glPopMatrix();
 	}
 
 	void Sprite::setAnimationSequence( int aStart, int aEnd )
@@ -69,14 +101,14 @@ namespace FGF
 			next--;
 		}
 		
-		texCoord1[0] = tc_origin_x + tcW;
-		texCoord1[1] = tc_origin_x + tcW;
-		texCoord1[2] = tc_origin_x;
-		texCoord1[3] = tc_origin_x;
+		texCoord1[0] = tc_origin_x;
+		texCoord1[1] = tc_origin_x;
+		texCoord1[2] = tc_origin_x + tcW;
+		texCoord1[3] = tc_origin_x + tcW;
 
 		texCoord2[0] = tc_origin_y - tcH;
 		texCoord2[1] = tc_origin_y;
-		texCoord2[2] = tc_origin_y;
-		texCoord2[3] = tc_origin_y - tcH;
+		texCoord2[2] = tc_origin_y - tcH;
+		texCoord2[3] = tc_origin_y;
 	}
 }
