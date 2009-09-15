@@ -48,7 +48,6 @@ namespace FGF
 		log += tmp;
 		log += "bpp ";
 		log += fullscreen?"Fullscreen":"Windowed";
-		std::cout << log;
 		
 		logger->Log(log.c_str());
 		SetVideoMode(w,h,bpp,fullscreen);

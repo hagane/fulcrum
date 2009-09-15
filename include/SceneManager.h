@@ -20,12 +20,12 @@ namespace FGF
 		 * implement scene-wise custom logic.
 		 * @param dt Time passed since last frame in seconds.
 		 */
-		void Update(float dt);
+		virtual void Update(float dt);
 
 		/**
 		 * Renders a scene.
 		 */
-		void Render();
+		virtual void Render();
 
 		/**
 		 * Adds a node to root of scene graph.
