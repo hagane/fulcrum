@@ -6,7 +6,7 @@ namespace FGF
 	{
 		tex = aTex;
 
-		this->setOrigin(0.5,0.5);
+		this->setOrigin(0,0);
 
 		texCoord1 = new float[4];
 		texCoord2 = new float[4];
@@ -57,7 +57,7 @@ namespace FGF
 		{
 			glEnable(GL_TEXTURE_2D);
 			tex->Activate();
-			glBegin(GL_QUADS);
+			glBegin(GL_TRIANGLE_STRIP);
 				for(int i = 0; i < 4; i++)
 				{
 					color[i].activate();
@@ -102,13 +102,13 @@ namespace FGF
 		}
 		
 		texCoord1[0] = tc_origin_x + tcW;
-		texCoord1[1] = tc_origin_x + tcW;
+		texCoord1[1] = tc_origin_x;
 		texCoord1[2] = tc_origin_x;
-		texCoord1[3] = tc_origin_x;
+		texCoord1[3] = tc_origin_x + tcW;
 
 		texCoord2[0] = tc_origin_y - tcH;
 		texCoord2[1] = tc_origin_y;
-		texCoord2[2] = tc_origin_y;
-		texCoord2[3] = tc_origin_y - tcH;
+		texCoord2[2] = tc_origin_y - tcH;
+		texCoord2[3] = tc_origin_y;
 	}
 }

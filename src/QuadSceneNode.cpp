@@ -6,9 +6,9 @@ namespace FGF
 		SceneNode(parent)
 	{
 		vertex[0] = Vertex3f(0,0,0);
-		vertex[1] = Vertex3f(w,0,0);
-		vertex[2] = Vertex3f(w,h,0);
-		vertex[3] = Vertex3f(0,h,0);
+		vertex[1] = Vertex3f(0,h,0);
+		vertex[2] = Vertex3f(w,0,0);
+		vertex[3] = Vertex3f(w,h,0);
 
 		color[0] = Color3f(1,1,1);
 		color[1] = Color3f(1,1,1);
