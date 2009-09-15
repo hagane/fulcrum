@@ -43,8 +43,8 @@ namespace FGF
 
 	void QuadSceneNode::setOrigin(float ox, float oy)
 	{
-		float w = vertex[2].coords()[0];
-		float h = vertex[2].coords()[1];
+		float w = vertex[3].coords()[0];
+		float h = vertex[3].coords()[1];
 		for(int i = 0; i < 4; i++)
 		{
 			vertex[i].coords()[0] -= w*ox;
