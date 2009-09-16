@@ -1,9 +1,10 @@
 #pragma once
 #include <SDL_mixer.h>
+#include "export.h"
 
 namespace FGF
 {
-	class Sound
+	class EXPORT Sound
 	{
 	public:
 		Sound(const char* file);
