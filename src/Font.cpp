@@ -35,7 +35,6 @@ namespace FGF
 
 	void Font::renderChar(wchar_t ch, int x_offset, int y_offset)
 	{
-		tex->Activate();
 		if(chars.find(ch) != chars.end())
 		{
 			float s = float(origin_x[ch])/float(tex->getXRes());
@@ -67,5 +66,10 @@ namespace FGF
 			return width[ch];
 		}
 		return 0;
+	}
+
+	void Font::Activate()
+	{
+		tex->Activate();
 	}
 }
