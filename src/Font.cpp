@@ -38,16 +38,24 @@ namespace FGF
 		tex->Activate();
 		if(chars.find(ch) != chars.end())
 		{
-			glTexCoord2i(origin_x[ch], origin_y[ch]);
+			float s = float(origin_x[ch])/float(tex->getXRes());
+			float t = float(origin_y[ch])/float(tex->getXRes());
+			glTexCoord2f(s, t);
 			glVertex3i(x_offset, y_offset, 0);
 
-			glTexCoord2i(origin_x[ch], origin_y[ch] + height[ch]);
+			s = float(origin_x[ch])/float(tex->getXRes());
+			t = float(origin_y[ch] + height[ch])/float(tex->getXRes());
+			glTexCoord2f(s, t);
 			glVertex3i(x_offset, y_offset + height[ch], 0);
 
-			glTexCoord2i(origin_x[ch] + width[ch], origin_y[ch] + height[ch]);
+			s = float(origin_x[ch] + width[ch])/float(tex->getXRes());
+			t = float(origin_y[ch] + height[ch])/float(tex->getXRes());
+			glTexCoord2f(s, t);
 			glVertex3i(x_offset + width[ch], y_offset + height[ch], 0);
 
-			glTexCoord2i(origin_x[ch] + width[ch], origin_y[ch]);
+			s = float(origin_x[ch] + width[ch])/float(tex->getXRes());
+			t = float(origin_y[ch])/float(tex->getXRes());
+			glTexCoord2f(s, t);
 			glVertex3i(x_offset + width[ch], y_offset, 0);
 		}
 	}
