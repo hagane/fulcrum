@@ -4,20 +4,20 @@ namespace FGF
 {
 	StringTable::StringTable(char* file)
 	{
-		std::ifstream st(file);
-		char buf[256];
+		std::wifstream st(file);
+		wchar_t buf[256];
 		while(!st.eof())
 		{
 			st.getline(buf,256,'\n');
-			std::string key(buf);
+			std::wstring key(buf);
 			st.getline(buf,256,'\n');
-			std::string val(buf);
+			std::wstring val(buf);
 			table[key] = val;
 		}
 		std::string log;
 		log.append("String Table from file '")
 			.append(file)
-			.append("' created");
+			.append("' created.");
 		Logger::getInstance()->Log(log.c_str());
 	}
 
@@ -26,7 +26,7 @@ namespace FGF
 		table.clear();
 	}
 
-	const char* StringTable::get(std::string key)
+	const wchar_t* StringTable::get(std::wstring key)
 	{
 		return table[key].c_str();
 	}

@@ -12,9 +12,9 @@ namespace FGF
 	public:
 		StringTable(char* file);
 		~StringTable(void);
-		const char* get(std::string key);
+		const wchar_t* get(std::wstring key);
 
 	private:
-		std::map<std::string, std::string> table;
+		std::map<std::wstring, std::wstring> table;
 	};
 }
