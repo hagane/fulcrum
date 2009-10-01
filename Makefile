@@ -16,8 +16,8 @@ OBJ = $O/*.obj
 SRC = $S/*.cpp
 
 prepare:
-	mkdir obj
-	mkdir lib
+	IF NOT EXIST obj mkdir obj
+	IF NOT EXIST lib mkdir lib
 
 compile: prepare
 	$(CC) $(CLFLAGS) $(SRC) /Fo./obj/
