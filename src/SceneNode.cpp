@@ -125,7 +125,7 @@ namespace FGF
 
 	float SceneNode::getGlobalCoord_Y()
 	{
-		if(parent != NULL) return (dy + parent->getGlobalCoord_X();
+		if(parent != NULL) return (dy + parent->getGlobalCoord_Y());
 		else return dy;
 	}
 }
