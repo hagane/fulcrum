@@ -101,6 +101,16 @@ namespace FGF
 		 */
 		void setPass(int newPass);
 
+		/**
+		 * Returns node's X-coordinate in a global frame.
+		 */
+		float getGlobalCoord_X();
+
+		/**
+		 * Returns node's Y-coordinate in a global frame.
+		 */
+		float getGlobalCoord_Y();
+
 	protected:
 		/**
 		 * List of this node's children.
