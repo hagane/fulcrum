@@ -116,4 +116,16 @@ namespace FGF
 	{
 		pass = newPass;
 	}
+
+	float SceneNode::getGlobalCoord_X()
+	{
+		if(parent != NULL) return (dx + parent->getGlobalCoord_X());
+		else return dx;
+	}
+
+	float SceneNode::getGlobalCoord_Y()
+	{
+		if(parent != NULL) return (dy + parent->getGlobalCoord_X();
+		else return dy;
+	}
 }

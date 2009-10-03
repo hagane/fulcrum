@@ -23,6 +23,7 @@ namespace FGF
 		prepare(curPass);
 		const wchar_t* ch = str.c_str();
 		int x_off = 0;
+		font->Activate();
 		glBegin(GL_QUADS);
 			while(*ch != 0)
 			{

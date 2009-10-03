@@ -1,3 +1,5 @@
+#pragma once
+
 #include <fstream>
 #include <map>
 #include <set>
@@ -35,6 +37,11 @@ namespace FGF
 		 * a font description.
 		 */
 		int getCharWidth(wchar_t ch);
+		
+		/**
+		 * Prepares a font for rendering.
+		 */
+		void Activate();
 
 	private:
 		std::map<wchar_t,int> origin_x;
