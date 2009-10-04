@@ -15,37 +15,6 @@ namespace FGF
 		else
 		{
 			logger->Log("Video: success");
-			logger->Log("OpenGL Info:");
-
-			//Немного чорной сишной магии
-			const GLubyte* gl_string = glGetString(GL_VERSION);
-			printf("%s",gl_string);
-			std::string gl_version_info;
-			while(gl_string != 0)
-			{
-				gl_version_info += (char)*gl_string;
-				gl_string++;
-			}
-
-			gl_string = glGetString(GL_VENDOR);
-			std::string gl_vendor_info;
-			while(gl_string != 0)
-			{
-				gl_vendor_info += (char)*gl_string;
-				gl_string++;
-			}
-
-			gl_string = glGetString(GL_RENDERER);
-			std::string gl_renderer_info;
-			while(gl_string != 0)
-			{
-				gl_renderer_info += (char)*gl_string;
-				gl_string++;
-			}
-
-			logger->Log(gl_version_info.c_str());
-			logger->Log(gl_vendor_info.c_str());
-			logger->Log(gl_renderer_info.c_str());
 		}
 
 		if(SDL_InitSubSystem(SDL_INIT_AUDIO) == -1)
@@ -181,6 +150,16 @@ namespace FGF
 
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+
+		logger->Log("OpenGL Info:");
+
+		//Немного чорной сишной магии
+		const GLubyte* gl_version = glGetString(GL_VERSION);
+		const GLubyte* gl_vendor = glGetString(GL_VENDOR);
+		const GLubyte* gl_renderer = glGetString(GL_RENDERER);
+		char gl_info[256];
+		sprintf_s(gl_info,256,"%s %s %s",gl_version, gl_vendor, gl_renderer);
+		logger->Log(gl_info);
 		
 		return true;
 	}
