@@ -1,12 +1,13 @@
 #pragma once
 #include <sdl.h>
+#include <export.h>
 
 namespace FGF
 {
 	/** \brief Centralised input.
 	 *
 	 */
-	class InputManager
+	class EXPORT InputManager
 	{
 	public:
 		InputManager();
