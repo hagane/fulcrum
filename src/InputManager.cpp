@@ -8,6 +8,7 @@ namespace FGF
 
 	InputManager::~InputManager()
 	{
+		key_press.clear();
 	}
 
 	bool InputManager::getKeyState(SDLKey key)
@@ -44,5 +45,19 @@ namespace FGF
 	bool InputManager::getMouseButtonState(int button)
 	{
 		return (SDL_GetMouseState(NULL,NULL)&SDL_BUTTON(button));
+	}
+
+	void InputManager::setCommand_OnKeyPress(SDLKey key,ICommand* cmd)
+	{
+		key_press[key] = cmd;
+	}
+
+	void InputManager::Update(float dt)
+	{
+		for(std::map<SDLKey,ICommand*>::iterator it = key_press.begin();
+				it != key_press.end(); it++)
+		{
+			if(getKeyState(it->first)) it->second->Execute(dt);
+		}
 	}
 }

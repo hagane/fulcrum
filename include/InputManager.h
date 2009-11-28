@@ -1,6 +1,8 @@
 #pragma once
+#include <map>
 #include <sdl.h>
-#include <export.h>
+#include "export.h"
+#include "ICommand.h"
 
 namespace FGF
 {
@@ -41,5 +43,17 @@ namespace FGF
 		 * @return True if button is pressed, false otherwise.
 		 */
 		bool getMouseButtonState(int button);
+
+		/**
+		 * @param key Key code. Refer to SDL docs for key
+		 * codes enumeration.
+		 * @param cmd Command to execute when key is pressed.
+		 */
+		void setCommand_OnKeyPress(SDLKey key,ICommand* cmd);
+
+		void Update(float dt);
+
+	protected:
+		std::map<SDLKey,ICommand*> key_press;
 	};
 }
