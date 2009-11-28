@@ -25,6 +25,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 #pragma once
 #include <string>
+#include <iostream>
+#include <sstream>
 #include <stdio.h>
 #include <SDL.h>
 #include <SDL_mixer.h>
@@ -32,7 +34,6 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 #include "Logger.h"
 #include "SceneManager.h"
 #include "Timer.h"
-#include "IEventProcessor.h"
 #include "export.h"
 
 namespace FGF
@@ -65,19 +66,11 @@ namespace FGF
 		 */
 		void setSceneManager(SceneManager* new_smgr);
 
-		/**
-		 * Sets event processor to use.
-		 * @param new_ep pointer to event processor
-		 */
-		void setEventProcessor(IEventProcessor* new_ep);
-
 	private:
 		SDL_Surface* mainSurface;
 		SceneManager* smgr;
 		Timer timer;
 		int w,h;
-
-		IEventProcessor* ep;
 
 		bool SetVideoMode (int w, int h, int bpp, bool fullscreen);
 	};

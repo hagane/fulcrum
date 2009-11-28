@@ -1,5 +1,4 @@
-#include "Main.h"
-#include <iostream>
+#include "..\include\Main.h"
 
 namespace FGF
 {
@@ -51,8 +50,6 @@ namespace FGF
 		
 		logger->Log(log.c_str());
 		SetVideoMode(w,h,bpp,fullscreen);
-
-		ep = 0;
 	}
 
 	Main::~Main(void)
@@ -79,26 +76,6 @@ namespace FGF
 				{
 					logger->Log("SDL_QUIT received. Shutting down.");
 					break;
-				}
-				else
-				{
-					if (ep != 0)
-					{
-						switch(ev.type)
-						{
-						case SDL_KEYDOWN:
-						case SDL_KEYUP:
-							ep->KeyState(ev.key);
-							break;
-						case SDL_MOUSEMOTION:
-							ep->MouseMove(ev.motion);
-							break;
-						case SDL_MOUSEBUTTONDOWN:
-						case SDL_MOUSEBUTTONUP:
-							ep->MouseButton(ev.button);
-							break;
-						}
-					}
 				}
 			}
 
@@ -151,6 +128,16 @@ namespace FGF
 
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+
+		logger->Log("OpenGL Info:");
+
+		//Немного чорной сишной магии
+		const GLubyte* gl_version = glGetString(GL_VERSION);
+		const GLubyte* gl_vendor = glGetString(GL_VENDOR);
+		const GLubyte* gl_renderer = glGetString(GL_RENDERER);
+		char gl_info[256];
+		sprintf_s(gl_info,256,"%s %s %s",gl_version, gl_vendor, gl_renderer);
+		logger->Log(gl_info);
 		
 		return true;
 	}
@@ -158,10 +145,5 @@ namespace FGF
 	void Main::setSceneManager(SceneManager *new_smgr)
 	{
 		smgr = new_smgr;
-	}
-
-	void Main::setEventProcessor(IEventProcessor *new_ep)
-	{
-		ep = new_ep;
 	}
 }
