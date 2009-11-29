@@ -1,6 +1,6 @@
 #pragma once
 #include <map>
-#include <sdl.h>
+#include <SDL.h>
 #include "export.h"
 #include "ICommand.h"
 

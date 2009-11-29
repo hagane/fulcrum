@@ -136,7 +136,7 @@ namespace FGF
 		const GLubyte* gl_vendor = glGetString(GL_VENDOR);
 		const GLubyte* gl_renderer = glGetString(GL_RENDERER);
 		char gl_info[256];
-		sprintf_s(gl_info,256,"%s %s %s",gl_version, gl_vendor, gl_renderer);
+		sprintf(gl_info,"%s %s %s",gl_version, gl_vendor, gl_renderer);
 		logger->Log(gl_info);
 		
 		return true;
