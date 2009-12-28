@@ -33,8 +33,8 @@ namespace FGF
 			 * Или переписать нахуй. Лучше переписать.
 			 * */
 			float speed_range = max_spd - min_spd;
-			float x_spd = (speed_range / (1+(rand()%(100)))) + min_spd;
-			float y_spd = (speed_range / (1+(rand()%(100)))) + min_spd;
+			float x_spd = (speed_range *((1+(rand()%(100)))) / 100) + min_spd;
+			float y_spd = (speed_range *((1+(rand()%(100)))) / 100) + min_spd;
 			particle new_part;
 			new_part.x = 0;//Относительно
 			new_part.y = 0;//эмиттера
