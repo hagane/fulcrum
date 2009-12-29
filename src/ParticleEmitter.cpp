@@ -26,6 +26,7 @@ namespace FGF
 		}
 
 		UpdateParticles(dt);
+		ClearDeadParticles();
 		updateChildren(dt);//Не знаю, нахуй, но пусть будет, лол!
 	}
 
