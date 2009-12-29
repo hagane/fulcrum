@@ -28,6 +28,7 @@ namespace FGF
 		{
 		public:
 			float Part_TTL;
+			float Emit_Period;
 			float Direction;//В радианах!
 			float DispAngle;//Обязательно в радианах!
 			float MinSpd;
@@ -49,6 +50,7 @@ namespace FGF
 
 		bool active;
 		PEParameters* parms;
+		float T;
 
 		void UpdateParticles(float dt);
 		void EmitParticle();

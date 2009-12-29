@@ -11,6 +11,7 @@ namespace FGF
 		srand((unsigned)time(NULL));
 
 		bool active = false;
+		T = parms->Emit_Period;
 	}
 
 	ParticleEmitter::~ParticleEmitter()
@@ -22,7 +23,15 @@ namespace FGF
 	{
 		if(active)
 		{
-			EmitParticle();
+			if(T <= 0)
+			{
+				EmitParticle();
+				T = parms->Emit_Period;
+			}
+			else
+			{
+				T -= dt;
+			}
 		}
 
 		UpdateParticles(dt);
@@ -98,6 +107,6 @@ namespace FGF
 		 * Контейнерная магия!
 		 * Заменить на что-то более разумное.
 		 */
-		while((particles.begin()->ttl) <= 0.0f) particles.pop_front();
+		if(!particles.empty()) while((particles.begin()->ttl) <= 0.0f) particles.pop_front();
 	}
 }
