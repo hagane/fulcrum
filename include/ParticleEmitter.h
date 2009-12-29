@@ -3,6 +3,7 @@
 #include <deque>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 #include "OpenGL.h"
 #include "SceneNode.h"
@@ -17,18 +18,13 @@ namespace FGF
 		float y;
 		float spd_x;
 		float spd_y;
+		float ttl;
 	};
-	/* TODO:
-	 * Следует сделать эмиттер произвольно включаемым и выключаемым.
-	 */
+
 	class EXPORT ParticleEmitter: public SceneNode
 	{
 	public:
-		/* TODO:
-		 * Вот весь этот говна вагон параметров надо заменить
-		 * одной няшной структуркой, я гарантирую это.
-		 * */
-		ParticleEmitter(SceneNode* parent, int aPartMax, float aEmitTTL, float aMinSpd, float aMaxSpd, Texture* aTex);
+		ParticleEmitter(SceneNode* parent, Parameters* aParms, Texture* aTex);
 		virtual ~ParticleEmitter();
 
 		virtual void Update(float dt);
@@ -37,17 +33,25 @@ namespace FGF
 		void Fire();
 		void Stop();
 
-	private:
-		int part_max;
-		float ttl;
-		float min_spd;
-		float max_spd;
-		Texture* tex;
+		class Parameters
+		{
+		public:
+			float Part_TTL;
+			float Direction;//В радианах!
+			float DispAngle;//Обязательно в радианах!
+			float MinSpd;
+			float MaxSpd;
+		}
 
+	private:
+		Texture* tex;
 		std::deque<particle> particles;
 
-		bool running;
+		bool active;
+		Parameters* parms;
 
 		void UpdateParticles(float dt);
+		void EmitParticle();
+		void ClearDeadParticles();
 	};
 }

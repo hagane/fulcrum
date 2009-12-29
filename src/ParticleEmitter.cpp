@@ -2,53 +2,29 @@
 
 namespace FGF
 {
-	ParticleEmitter::ParticleEmitter(SceneNode* parent, int aPartMax, float aEmitTTL, float aMinSpd, float aMaxSpd, Texture* aTex)
+	ParticleEmitter::ParticleEmitter(SceneNode* parent, Parameters* aParms, Texture* aTex)
 		:SceneNode(parent)
 	{
-		part_max = aPartMax;
-		ttl = aEmitTTL;
-		min_spd = aMinSpd;
-		max_spd = aMaxSpd;
+		parms = aParms;
 		tex = aTex;
+
 		srand((unsigned)time(NULL));
 
-		bool running = false;
+		bool active = false;
 	}
 
 	ParticleEmitter::~ParticleEmitter()
 	{
 		particles.clear();
-		/* TODO:
-		 * Запилить "перевешивание" дочерних
-		 * нод на родителя. А может и нет.
-		 * */
 	}
 
 	void ParticleEmitter::Update(float dt)
 	{
-		if(particles.size() <= part_max)
+		if(active)
 		{
-			/* TODO:
-			 * Здесь надо исправить рандомизацию скорости.
-			 * Или переписать нахуй. Лучше переписать.
-			 * */
-			float speed_range = max_spd - min_spd;
-			float x_spd = (speed_range *((1+(rand()%(100)))) / 100) + min_spd;
-			float y_spd = (speed_range *((1+(rand()%(100)))) / 100) + min_spd;
-			particle new_part;
-			new_part.x = 0;//Относительно
-			new_part.y = 0;//эмиттера
-			new_part.spd_x = x_spd;
-			new_part.spd_y = y_spd;
-			particles.push_front(new_part);
-		}
-		else
-		{
-			particles.pop_back();
+			EmitPartile();
 		}
 
-		ttl -= dt;
-		
 		UpdateParticles(dt);
 		updateChildren(dt);//Не знаю, нахуй, но пусть будет, лол!
 	}
@@ -81,12 +57,46 @@ namespace FGF
 		renderChildren(currPass);
 	}
 
+	void ParticleEmitter::Fire()
+	{
+		active = true;
+	}
+
+	void ParticleEmitter::Stop()
+	{
+		active = false;
+	}
+
 	void ParticleEmitter::UpdateParticles(float dt)
 	{
 		for(std::deque<particle>::iterator it = particles.begin(); it != particles.end(); it++)
 		{
 			it->x = it->x + (it->spd_x)*dt;
 			it->y = it->y + (it->spd_y)*dt;
-		}
+			it->ttl -= dt;
+		}	
+	}
+
+	void ParticleEmitter::EmitParticle()
+	{
+			float speed_range = parms->MaxSpd - parms->MinSpd;
+			float spd = (speed_range *((float)(rand()%101)) / 100) + parms->MinSpd;
+			float angle = parms->Direction + (((float)(rand()%101 - 50)/100) * parms->DispAngle);
+			particle new_part;
+			new_part.x = 0;//Относительно
+			new_part.y = 0;//эмиттера
+			new_part.spd_x = spd* cos(angle);
+			new_part.spd_y = spd* sin(angle);
+			new_part.ttl = parms->Part_TTL;
+			particles.push_back(new_part);
+	}
+
+	void ParticleEmitter::ClearDeadParticles()
+	{
+		/* TODO: 
+		 * Контейнерная магия!
+		 * Заменить на что-то более разумное.
+		 */
+		while((particles.begin()->ttl) <= 0.0f) particles.pop_front();
 	}
 }
