@@ -22,7 +22,7 @@ namespace FGF
 	{
 		if(active)
 		{
-			EmitPartiсle();
+			EmitParticle();
 		}
 
 		UpdateParticles(dt);
