@@ -24,7 +24,17 @@ namespace FGF
 	class EXPORT ParticleEmitter: public SceneNode
 	{
 	public:
-		ParticleEmitter(SceneNode* parent, Parameters* aParms, Texture* aTex);
+		class PEParameters
+		{
+		public:
+			float Part_TTL;
+			float Direction;//В радианах!
+			float DispAngle;//Обязательно в радианах!
+			float MinSpd;
+			float MaxSpd;
+		};
+
+		ParticleEmitter(SceneNode* parent, PEParameters* aParms, Texture* aTex);
 		virtual ~ParticleEmitter();
 
 		virtual void Update(float dt);
@@ -33,22 +43,12 @@ namespace FGF
 		void Fire();
 		void Stop();
 
-		class Parameters
-		{
-		public:
-			float Part_TTL;
-			float Direction;//В радианах!
-			float DispAngle;//Обязательно в радианах!
-			float MinSpd;
-			float MaxSpd;
-		}
-
 	private:
 		Texture* tex;
 		std::deque<particle> particles;
 
 		bool active;
-		Parameters* parms;
+		PEParameters* parms;
 
 		void UpdateParticles(float dt);
 		void EmitParticle();

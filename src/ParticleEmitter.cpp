@@ -2,7 +2,7 @@
 
 namespace FGF
 {
-	ParticleEmitter::ParticleEmitter(SceneNode* parent, Parameters* aParms, Texture* aTex)
+	ParticleEmitter::ParticleEmitter(SceneNode* parent, PEParameters* aParms, Texture* aTex)
 		:SceneNode(parent)
 	{
 		parms = aParms;
@@ -22,7 +22,7 @@ namespace FGF
 	{
 		if(active)
 		{
-			EmitPartile();
+			EmitPartiсle();
 		}
 
 		UpdateParticles(dt);
