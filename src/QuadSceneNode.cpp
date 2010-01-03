@@ -22,22 +22,19 @@ namespace FGF
 	{
 	}
 
-	void QuadSceneNode::Render(int curPass)
+	void QuadSceneNode::Render()
 	{
 		glPushMatrix();
-		prepare(curPass);
-		if(render)
+		prepare();
+		glDisable(GL_TEXTURE_2D);
+		glBegin(GL_QUADS);
+		for(int i = 0; i < 4; i++)
 		{
-			glDisable(GL_TEXTURE_2D);
-			glBegin(GL_QUADS);
-				for(int i = 0; i < 4; i++)
-				{
-					color[i].activate();
-					vertex[i].render();
-				}
-			glEnd();
+			color[i].activate();
+			vertex[i].render();
 		}
-		renderChildren(curPass);
+		glEnd();
+		renderChildren();
 		glPopMatrix();
 	}
 

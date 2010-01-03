@@ -32,7 +32,7 @@ namespace FGF
  		 * Animation will cycle consecutively through set sequence.
 		 */
 		virtual void Update(float dt);
-		virtual void Render(int curPass);
+		virtual void Render();
 
 		/**
 		 * Sets start/end frames for animation.

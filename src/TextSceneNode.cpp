@@ -2,7 +2,7 @@
 namespace FGF
 {
 	TextSceneNode::TextSceneNode(SceneNode* parent, Font* f)
-		: SceneNode(parent,0)
+		: SceneNode(parent)
 	{
 		font = f;
 		str = L"";
@@ -17,10 +17,10 @@ namespace FGF
 		str = s;
 	}
 
-	void TextSceneNode::Render(int curPass)
+	void TextSceneNode::Render()
 	{
 		glPushMatrix();
-		prepare(curPass);
+		prepare();
 		const wchar_t* ch = str.c_str();
 		int x_off = 0;
 		font->Activate();
@@ -32,7 +32,7 @@ namespace FGF
 				ch++;
 			}
 		glEnd();
-		renderChildren(curPass);
+		renderChildren();
 		glPopMatrix();
 	}
 }

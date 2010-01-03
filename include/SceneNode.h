@@ -22,7 +22,7 @@ namespace FGF
 		 * @param parent new node's parent node
 		 * @param pass -- render pass (not implemented yet)
 		 */
-		SceneNode(SceneNode* parent, int pass = 0);
+		SceneNode(SceneNode* parent);
 		virtual ~SceneNode(void);
 
 		/**
@@ -74,9 +74,8 @@ namespace FGF
 
 		/**
 		 * Calls Render on this node's children.
-		 * @param curPass render pass
 		 */
-		void renderChildren(int curPass);
+		void renderChildren();
 
 		/**
 		 * If you need custom logic, you should override this method.
@@ -86,20 +85,13 @@ namespace FGF
 
 		/**
 		 * If you need custom logic, you should override this method.
-		 * @param curPass render pass
 		 */
-		virtual void Render(int curPass);
+		virtual void Render();
 
 		/**
 		 * Prepares node for rendering.
-		 * @param curPass render pass
 		 */
-		void prepare(int curPass);
-
-		/**
-		 * Changes pass, on which the node has to be rendered.
-		 */
-		void setPass(int newPass);
+		void prepare();
 
 		/**
 		 * Returns node's X-coordinate in a global frame.
@@ -121,16 +113,6 @@ namespace FGF
 		 * This node's parent.
 		 */
 		SceneNode* parent;
-
-		/**
-		 * Set this to false if node should not be rendered.
-		 */
-		bool render;
-
-		/**
-		 * A pass on which the node has to be rendered.
-		 */
-		int pass;
 
 		/**
 		 * Rotation of the node.

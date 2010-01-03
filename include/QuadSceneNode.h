@@ -13,7 +13,7 @@ namespace FGF
 	public:
 		QuadSceneNode(SceneNode* parent, float x, float y, float w, float h);
 		virtual ~QuadSceneNode(void);
-		virtual void Render(int curPass);
+		virtual void Render();
 		void setOrigin(float ox, float oy);
 
 	protected:

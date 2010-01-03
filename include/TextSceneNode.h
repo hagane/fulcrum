@@ -12,7 +12,7 @@ namespace FGF
 		TextSceneNode(SceneNode* parent, Font* f);
 		virtual ~TextSceneNode();
 		virtual void setString(std::wstring s);
-		virtual void Render(int curPass);
+		virtual void Render();
 	private:
 		std::wstring str;
 		Font* font;

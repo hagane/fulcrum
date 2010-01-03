@@ -39,9 +39,9 @@ namespace FGF
 		updateChildren(dt);//Не знаю, нахуй, но пусть будет, лол!
 	}
 
-	void ParticleEmitter::Render(int currPass)
+	void ParticleEmitter::Render()
 	{
-		prepare(currPass);
+		prepare();
 		tex->Activate();
 		float tex_x = tex->getXRes();
 		float tex_y = tex->getYRes();
@@ -64,7 +64,7 @@ namespace FGF
 		}
 		glEnd();
 
-		renderChildren(currPass);
+		renderChildren();
 	}
 
 	void ParticleEmitter::Fire()

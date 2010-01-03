@@ -18,7 +18,7 @@ namespace FGF
 
 	void SceneManager::Render()
 	{
-		root->Render(0);
+		root->Render();
 	}
 
 	void SceneManager::addNode(SceneNode* node)

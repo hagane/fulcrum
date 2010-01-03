@@ -39,7 +39,7 @@ namespace FGF
 		virtual ~ParticleEmitter();
 
 		virtual void Update(float dt);
-		virtual void Render(int currPass);
+		virtual void Render();
 
 		void Fire();
 		void Stop();

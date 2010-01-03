@@ -48,12 +48,12 @@ namespace FGF
 		}
 	}
 
-	void Sprite::Render(int curPass)
+	void Sprite::Render()
 	{
 		glPushMatrix();
-		prepare(curPass);
+		prepare();
 
-		if(render && (tex != NULL))
+		if(tex != NULL)
 		{
 			glEnable(GL_TEXTURE_2D);
 			tex->Activate();
@@ -66,7 +66,7 @@ namespace FGF
 				}
 			glEnd();
 		}
-		renderChildren(curPass);
+		renderChildren();
 		glPopMatrix();
 	}
 
