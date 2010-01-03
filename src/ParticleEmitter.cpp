@@ -41,6 +41,7 @@ namespace FGF
 
 	void ParticleEmitter::Render()
 	{
+		glPushMatrix();
 		prepare();
 		tex->Activate();
 		float tex_x = tex->getXRes();
@@ -65,6 +66,7 @@ namespace FGF
 		glEnd();
 
 		renderChildren();
+		glPopMatrix();
 	}
 
 	void ParticleEmitter::Fire()
