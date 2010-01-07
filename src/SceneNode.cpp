@@ -9,6 +9,7 @@ namespace FGF
 		rot = 0.0f;
 		dx = dy = 0.0f;
 		sx = sy = 1.0f;
+		this->parent = parent;
 	}
 
 	SceneNode::~SceneNode(void)
@@ -39,7 +40,7 @@ namespace FGF
 	void SceneNode::setParent(SceneNode *newParent)
 	{
 		if(newParent != NULL) newParent->addChild(this);
-		if(this->parent != NULL) this->parent->removeChild(this);
+		else if(this->parent != NULL) parent->removeChild(this);
 		this->parent = parent;
 		
 	}
