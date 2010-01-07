@@ -119,4 +119,10 @@ namespace FGF
 		if(parent != NULL) return (dy + parent->getGlobalCoord_Y());
 		else return dy;
 	}
+
+	float SceneNode::getGlobalRotation()
+	{
+		if(parent != NULL) return (rot + parent->getGlobalRotation());
+		else return rot;
+	}
 }

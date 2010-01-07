@@ -103,6 +103,11 @@ namespace FGF
 		 */
 		float getGlobalCoord_Y();
 
+		/**
+		 * Returns node's rotation in a global frame in radians.
+		 */
+		float getGlobalRotation();
+
 	protected:
 		/**
 		 * List of this node's children.
