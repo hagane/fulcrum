@@ -1,6 +1,8 @@
 #pragma once
-#include "OpenGL.h"
+#define _USE_MATH_DEFINES
 #include <list>
+#include <math.h>
+#include "OpenGL.h"
 #include "RefCount.h"
 #include "export.h"
 
@@ -53,6 +55,11 @@ namespace FGF
 		 * @param a -- angle in radians.
 		 */
 		void rotate(float a);
+
+		/**
+		 * Returns node's own rotation.
+		 */
+		float getRotation();
 
 		/**
 		 * Translates a node.

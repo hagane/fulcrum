@@ -50,6 +50,11 @@ namespace FGF
 		rot += a;
 	}
 
+	float SceneNode::getRotation()
+	{
+		return rot;
+	}
+
 	void SceneNode::translate(float dx, float dy)
 	{
 		this->dx += dx;
@@ -111,13 +116,21 @@ namespace FGF
 
 	float SceneNode::getGlobalCoord_X()
 	{
-		if(parent != NULL) return (dx + parent->getGlobalCoord_X());
+		if(parent != NULL)
+		{
+			float x = dx * cos(parent->getRotation() * M_PI/180) - dy * sin(parent->getRotation() * M_PI/180);
+			return (x + parent->getGlobalCoord_X());
+		}
 		else return dx;
 	}
 
 	float SceneNode::getGlobalCoord_Y()
 	{
-		if(parent != NULL) return (dy + parent->getGlobalCoord_Y());
+		if(parent != NULL)
+		{
+			float y = dx * sin(parent->getRotation() * M_PI/180) + dy * cos(parent->getRotation() * M_PI/180);
+			return (y + parent->getGlobalCoord_Y());
+		}
 		else return dy;
 	}
 
