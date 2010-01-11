@@ -65,7 +65,6 @@ namespace FGF
 		Logger* logger = Logger::getInstance();
 		SDL_Event ev;
 		float dt = 1.0f/60.0f;
-		glClearColor(0.5,0.5,0.5,0.5);
 		while(1)
 		{
 			timer.start();
@@ -138,6 +137,8 @@ namespace FGF
 		char gl_info[256];
 		sprintf_s(gl_info,256,"%s %s %s",gl_version, gl_vendor, gl_renderer);
 		logger->Log(gl_info);
+
+		glClearColor(0.5,0.5,0.5,0.5);
 		
 		return true;
 	}
