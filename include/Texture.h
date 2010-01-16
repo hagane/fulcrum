@@ -5,6 +5,8 @@
 #include <FreeImage.h>
 #include "export.h"
 
+#define TEX_NAMES 256
+
 namespace FGF
 {
 	class EXPORT Texture
@@ -16,11 +18,17 @@ namespace FGF
 		void Activate();
 		int getXRes(){return xres;}
 		int getYRes(){return yres;}
+
 	protected:
 		int size;
 		int xres,yres;
 		GLenum format;
-		GLubyte* texdata;
-		FIBITMAP* dib;
+		GLuint texname;
+
+		static int GenNames();
+		static GLuint GetName();
+
+		static GLuint texnames[TEX_NAMES];
+		static int next_name;
 	};
 }
