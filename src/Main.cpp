@@ -78,7 +78,7 @@ namespace FGF
 				}
 			}
 
-			glClear(GL_COLOR_BUFFER_BIT);
+			glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 			smgr->Update(dt);
 			smgr->Render();
 
@@ -116,6 +116,13 @@ namespace FGF
 			return false;
 		}
 
+		glEnable(GL_DEPTH_TEST);
+		glDepthFunc(GL_LESS);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER,0.1f);
+
 		glLoadIdentity();
 		glViewport(0,0,w,h);
 		glOrtho(0,w,0,h,-1,1);
@@ -124,9 +131,6 @@ namespace FGF
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
 		logger->Log("OpenGL Info:");
 
@@ -139,7 +143,18 @@ namespace FGF
 		logger->Log(gl_info);
 
 		glClearColor(0.5,0.5,0.5,0.5);
-		
+		glClearDepth(1);
+
+		GLenum gl_err = glGetError();
+		const char* err_string;
+		switch(gl_err)
+		{
+			case GL_NO_ERROR:
+				err_string = "GL Init: Success!"; break;
+			default:
+				err_string = reinterpret_cast<const char*>(gluErrorString(gl_err)); break;
+		}
+		logger->Log(err_string);
 		return true;
 	}
 

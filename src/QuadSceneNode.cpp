@@ -5,10 +5,10 @@ namespace FGF
 	QuadSceneNode::QuadSceneNode(SceneNode* parent, float x, float y, float w, float h):
 		SceneNode(parent)
 	{
-		vertex[0] = Vertex3f(0,0,0);
-		vertex[1] = Vertex3f(0,h,0);
-		vertex[2] = Vertex3f(w,0,0);
-		vertex[3] = Vertex3f(w,h,0);
+		vertex[0] = Vertex3f(0,0,1);
+		vertex[1] = Vertex3f(0,h,1);
+		vertex[2] = Vertex3f(w,0,1);
+		vertex[3] = Vertex3f(w,h,1);
 
 		color[0] = Color3f(1,1,1);
 		color[1] = Color3f(1,1,1);

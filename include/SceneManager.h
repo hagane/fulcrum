@@ -33,7 +33,7 @@ namespace FGF
 		 */
 		void addNode(SceneNode* node);
 
-	private:
+	protected:
 		SceneNode* root;
 	};
 }
