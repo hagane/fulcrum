@@ -24,7 +24,7 @@ namespace FGF
 		 * @param parent new node's parent node
 		 * @param pass -- render pass (not implemented yet)
 		 */
-		SceneNode(SceneNode* parent);
+		SceneNode();
 		virtual ~SceneNode(void);
 
 		/**

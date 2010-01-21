@@ -2,8 +2,7 @@
 
 namespace FGF
 {
-	Background::Background(SceneNode* parent, float aParCoeff, Texture* aTex)
-		:SceneNode(parent)
+	Background::Background(float aParCoeff, Texture* aTex)
 	{
 		par_coeff = aParCoeff;
 		tex = aTex;

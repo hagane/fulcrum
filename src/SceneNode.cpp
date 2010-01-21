@@ -2,14 +2,12 @@
 
 namespace FGF
 {
-	SceneNode::SceneNode(SceneNode* parent)
+	SceneNode::SceneNode()
 	{
-		this->parent = NULL;
-		setParent(parent);
+		parent = NULL;
 		rot = 0.0f;
 		dx = dy = 0.0f;
 		sx = sy = 1.0f;
-		this->parent = parent;
 	}
 
 	SceneNode::~SceneNode(void)

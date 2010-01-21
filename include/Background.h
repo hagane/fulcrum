@@ -9,7 +9,7 @@ namespace FGF
 	class EXPORT Background: public SceneNode
 	{
 	public:
-		Background(SceneNode* parent, float aParCoeff, Texture* aTex);
+		Background(float aParCoeff, Texture* aTex);
 		virtual ~Background();
 
 		virtual void Render();

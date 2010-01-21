@@ -23,7 +23,7 @@ namespace FGF
 		 * @param fps Number of frame switches in one second. Use 0 if you want to switch frames manually.
 		 * @param aTex Sprite's texture.
 		 */
-		Sprite(SceneNode* parent, float x, float y, float w, float h, float fps, Texture* aTex);
+		Sprite(float x, float y, float w, float h, float fps, Texture* aTex);
 		virtual ~Sprite(void);
 
 		/**

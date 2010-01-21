@@ -1,8 +1,7 @@
 #include "../include/TextSceneNode.h"
 namespace FGF
 {
-	TextSceneNode::TextSceneNode(SceneNode* parent, Font* f)
-		: SceneNode(parent)
+	TextSceneNode::TextSceneNode(Font* f)
 	{
 		font = f;
 		str = L"";

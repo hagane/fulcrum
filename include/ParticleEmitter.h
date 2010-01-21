@@ -35,7 +35,7 @@ namespace FGF
 			float MaxSpd;
 		};
 
-		ParticleEmitter(SceneNode* parent, PEParameters* aParms, Texture* aTex);
+		ParticleEmitter(PEParameters* aParms, Texture* aTex);
 		virtual ~ParticleEmitter();
 
 		virtual void Update(float dt);

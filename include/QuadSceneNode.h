@@ -11,7 +11,7 @@ namespace FGF
 		public SceneNode
 	{
 	public:
-		QuadSceneNode(SceneNode* parent, float x, float y, float w, float h);
+		QuadSceneNode(float x, float y, float w, float h);
 		virtual ~QuadSceneNode(void);
 		virtual void Render();
 		void setOrigin(float ox, float oy);

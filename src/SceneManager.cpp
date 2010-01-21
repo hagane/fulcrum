@@ -4,7 +4,7 @@ namespace FGF
 {
 	SceneManager::SceneManager(void)
 	{
-		root = new SceneNode(NULL);
+		root = new SceneNode();
 	}
 
 	SceneManager::~SceneManager(void)

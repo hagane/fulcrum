@@ -9,7 +9,7 @@ namespace FGF
 	class EXPORT TextSceneNode: public SceneNode
 	{
 	public:
-		TextSceneNode(SceneNode* parent, Font* f);
+		TextSceneNode(Font* f);
 		virtual ~TextSceneNode();
 		virtual void setString(std::wstring s);
 		virtual void Render();

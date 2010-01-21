@@ -2,8 +2,7 @@
 
 namespace FGF
 {
-	ParticleEmitter::ParticleEmitter(SceneNode* parent, PEParameters* aParms, Texture* aTex)
-		:SceneNode(parent)
+	ParticleEmitter::ParticleEmitter(PEParameters* aParms, Texture* aTex)
 	{
 		parms = aParms;
 		tex = aTex;

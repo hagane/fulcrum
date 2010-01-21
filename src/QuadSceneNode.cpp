@@ -2,8 +2,7 @@
 
 namespace FGF
 {
-	QuadSceneNode::QuadSceneNode(SceneNode* parent, float x, float y, float w, float h):
-		SceneNode(parent)
+	QuadSceneNode::QuadSceneNode(float x, float y, float w, float h)
 	{
 		vertex[0] = Vertex3f(0,0,1);
 		vertex[1] = Vertex3f(0,h,1);
