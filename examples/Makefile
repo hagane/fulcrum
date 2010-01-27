@@ -12,9 +12,11 @@ all: compile link
 
 compile:
 	CL example1.cpp $(CLFLAGS)
+	CL example2.cpp $(CLFLAGS)
 
 link: $(OBJ)
 	LINK example1.obj $(LIB) $(LINKFLAGS) /OUT:example1.exe
+	LINK example2.obj $(LIB) $(LINKFLAGS) /OUT:example2.exe
 
 clean:
 	echo cleaning...
