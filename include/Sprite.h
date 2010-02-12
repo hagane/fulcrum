@@ -18,12 +18,11 @@ namespace FGF
 		 * Constructor.
 		 *
 		 * @param parent Sprite's parent node.
-		 * @param x,y Coords relative to parent.
 		 * @param w,h Width and height of sprite and size of one frame in pixels.
 		 * @param fps Number of frame switches in one second. Use 0 if you want to switch frames manually.
 		 * @param aTex Sprite's texture.
 		 */
-		Sprite(float x, float y, float w, float h, float fps, Texture* aTex);
+		Sprite(float w, float h, float fps, Texture* aTex);
 		virtual ~Sprite(void);
 
 		/**

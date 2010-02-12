@@ -2,7 +2,7 @@
 namespace FGF
 {
 	Sprite::Sprite(float x, float y, float w, float h, float fps, Texture* aTex)
-		:QuadSceneNode(x,y,w,h)
+		:QuadSceneNode(0,0,w,h)
 	{
 		tex = aTex;
 
