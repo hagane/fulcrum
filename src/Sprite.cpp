@@ -1,7 +1,7 @@
 #include "..\include\Sprite.h"
 namespace FGF
 {
-	Sprite::Sprite(float x, float y, float w, float h, float fps, Texture* aTex)
+	Sprite::Sprite(float w, float h, float fps, Texture* aTex)
 		:QuadSceneNode(0,0,w,h)
 	{
 		tex = aTex;
