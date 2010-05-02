@@ -1,5 +1,6 @@
 CC = CL
 LD = LINK
+HHC = "C:\Program Files\Help Workshop\hhc.exe"
 
 SDLDIR = "E:/Source/SDK/SDL"
 CRTDIR = "C:/Program Files/Microsoft Visual Studio 9.0/VC"
@@ -32,5 +33,13 @@ clean:
 	rmdir lib
 	del docs /Q
 	rmdir docs
+
+docs:
+  doxygen
+  cd docs/html
+  mkdir docs
+  $(HHC) index.hhp
+
+dist: prepare compile link docs
 
 all: prepare compile link
