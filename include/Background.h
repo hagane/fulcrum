@@ -16,9 +16,5 @@ namespace FGF
 	
 	private:
 		float par_coeff;
-		Texture* tex;
-
-		float w;
-		float h;
 	};
 }

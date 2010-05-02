@@ -17,28 +17,18 @@ namespace FGF
 
 	void Background::Render()
 	{
-		tex->Activate();
 		glPushMatrix();
 
+		//Суть всей этой магии в том, чтобы
+		//а). смещать бэкграунд со скоростью меньшей, чем у
+		//    фореграунда
+		//б). рисовать бэкграунд за фореграундом.
 		glTranslatef(dx*par_coeff,dy*par_coeff,0.5f);
 		glRotatef(rot,0.0f,0.0f,1.0f);
 		glScalef(sx,sy,1.0f);
 
-		glColor3f(1.0,1.0,1.0);
+		renderChildren();
 
-		glBegin(GL_QUADS);
-			glTexCoord2f(0.0f,0.0f);
-			glVertex3f(0.0f,0.0f,-0.5f);
-
-			glTexCoord2f(1.0f,0.0f);
-			glVertex3f(w,0.0f,-0.5f);
-
-			glTexCoord2f(1.0f,1.0f);
-			glVertex3f(w,h,-0.5f);
-
-			glTexCoord2f(0.0f,1.0f);
-			glVertex3f(0.0f,h,-0.5f);
-		glEnd();
 		glPopMatrix();
 	}
 }
