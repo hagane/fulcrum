@@ -5,10 +5,6 @@ namespace FGF
 	Background::Background(float aParCoeff, Texture* aTex)
 	{
 		par_coeff = aParCoeff;
-		tex = aTex;
-
-		w = aTex->getXRes();
-		h = aTex->getYRes();
 	}
 
 	Background::~Background()
