@@ -127,11 +127,6 @@ namespace FGF
 		glViewport(0,0,w,h);
 		glOrtho(0,w,0,h,-1,1);
 
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
 		logger->Log("OpenGL Info:");
 
 		//Немного чорной сишной магии

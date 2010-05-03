@@ -2,10 +2,9 @@
 
 #include "Logger.h"
 #include "OpenGL.h"
-#include <FreeImage.h>
 #include "export.h"
-
-#define TEX_NAMES 256
+#include <FreeImage.h>
+#include <sstream>
 
 namespace FGF
 {
@@ -25,10 +24,6 @@ namespace FGF
 		GLenum format;
 		GLuint texname;
 
-		static int GenNames();
 		static GLuint GetName();
-
-		static GLuint texnames[TEX_NAMES];
-		static int next_name;
 	};
 }
