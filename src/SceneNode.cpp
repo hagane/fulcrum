@@ -40,7 +40,6 @@ namespace FGF
 		if(newParent != NULL) newParent->addChild(this);
 		else if(this->parent != NULL) parent->removeChild(this);
 		this->parent = parent;
-		
 	}
 
 	void SceneNode::rotate(float a)

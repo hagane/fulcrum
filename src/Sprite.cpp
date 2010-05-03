@@ -57,7 +57,7 @@ namespace FGF
 		{
 			glEnable(GL_TEXTURE_2D);
 			tex->Activate();
-			glBegin(GL_TRIANGLE_STRIP);
+			glBegin(GL_QUADS);
 				for(int i = 0; i < 4; i++)
 				{
 					color[i].activate();
@@ -108,7 +108,7 @@ namespace FGF
 
 		texCoord2[0] = tc_origin_y - tcH;
 		texCoord2[1] = tc_origin_y;
-		texCoord2[2] = tc_origin_y - tcH;
-		texCoord2[3] = tc_origin_y;
+		texCoord2[2] = tc_origin_y;
+		texCoord2[3] = tc_origin_y - tcH;
 	}
 }
